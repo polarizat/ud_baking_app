@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="recipe"
+            type="com.example.bakingapp.data.models.Recipe" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:paddingHorizontal="16dp"
+        android:background="@drawable/selector_widget_recipe_item">
+
+        <TextView
+            android:id="@+id/widget_config_recipe_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@{recipe.name}"
+            tools:text="Nutella Pie"
+            android:textSize="18sp"
+            android:layout_marginStart="16dp"
+            android:gravity="center_vertical"
+            android:textStyle="bold"/>
+    </FrameLayout>
+</layout>

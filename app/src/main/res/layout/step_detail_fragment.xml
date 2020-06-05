@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.recipe_detail.detail.StepDetailFragment">
+    
+    <data>
+        <import type="com.example.bakingapp.data.models.Step"/>
+        <variable
+            name="viewmodel"
+            type="com.example.bakingapp.ui.recipe_detail.RecipeDetailSharedViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/step_detail_container_cl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/playerView"
+                style="@style/Player"
+
+                android:visibility='@{viewmodel.getCurrentStepVideoUrl().equals("") ? View.GONE : View.VISIBLE}'
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/step_number_tv"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+
+                android:text='@{viewmodel.stepIndex >= 1 ? String.valueOf(viewmodel.stepIndex) : "ING"}'
+
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@drawable/step_circle"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/playerView" />
+
+            <TextView
+                android:id="@+id/step_shortDesc_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+
+                style="@style/TextViewGeneral"
+                android:maxLines="2"
+                android:text="@{viewmodel.currentStep.shortDescription}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+
+                app:layout_constraintBottom_toBottomOf="@+id/step_number_tv"
+                app:layout_constraintStart_toEndOf="@+id/step_number_tv"
+                app:layout_constraintTop_toTopOf="@+id/step_number_tv"
+                tools:text="Press the crust into baking form." />
+
+            <include
+                android:id="@+id/instructions_layout"
+                layout="@layout/detail_instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+
+                android:visibility="@{viewmodel.stepIndex > 1 ? View.VISIBLE : View.GONE}"
+                app:viewmodel="@{viewmodel}"
+
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/step_shortDesc_tv" />
+
+            <include
+                android:id="@+id/ingredients_layout"
+                layout="@layout/detail_ingredients"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="12dp"
+
+                android:visibility="@{viewmodel.currentStep.shortDescription == Step.INGREDIENTS_KEY ? View.VISIBLE : View.GONE}"
+
+                app:layout_constraintBottom_toTopOf="@+id/bottom_nav_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/instructions_layout"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <include
+                android:id="@+id/bottom_nav_layout"
+                layout="@layout/detail_single_pane_bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:visibility="visible"
+                app:viewmodel="@{viewmodel}"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

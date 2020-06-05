@@ -1,0 +1,87 @@
+<LinearLayout
+    android:id="@+id/widget_ll"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/widget_margin">
+
+    <LinearLayout
+        android:id="@+id/widget_recipe_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/widget_recipe_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:maxLines="2"
+            tools:text="@string/example_recipe_name"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/widget_ingredient_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryLight"
+        android:paddingHorizontal="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/widget_ingredient_name_label_tv"
+            style="@style/LabelDark"
+
+            android:textColor="@color/colorSecondary"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+
+            android:text="@string/ingredient_label_ingredient_name" />
+
+        <TextView
+            android:id="@+id/widget_ingredient_quantity_label_tv"
+            style="@style/LabelDark"
+            android:textColor="@color/colorSecondary"
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="4dp"
+
+            android:text="@string/widget_ingredient_quantity_tv" />
+
+        <TextView
+            android:id="@+id/widget_ingredient_measure_label_tv"
+            style="@style/LabelDark"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorSecondary"
+            android:layout_weight="1"
+
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:text="@string/widget_ingredient_measure_tv" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/widget_ingredients_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingHorizontal="16dp"
+        android:listSelector="@color/transparent"/>
+
+</LinearLayout>

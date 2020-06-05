@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="step"
+            type="com.example.bakingapp.data.models.Step" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/step_ll"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="@drawable/selector_step_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instructions_step_ll">
+
+        <ImageView
+            android:id="@+id/step_icon"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginStart="32dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/selector_step_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/step_shortDescription_tv"
+            style="@style/LabelDark"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_gravity="center"
+            android:textColor="@drawable/selector_step_text"
+
+            android:text="@{step.shortDescription}"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/step_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Prep the cookie crust." />
+    </LinearLayout>
+</layout>

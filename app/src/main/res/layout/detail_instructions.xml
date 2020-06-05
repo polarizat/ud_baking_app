@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.bakingapp.ui.recipe_detail.RecipeDetailSharedViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/detail_instructions_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/step_instruction_label"
+            style="@style/LabelDark"
+            android:text="@string/step_detail_label_instructions" />
+
+        <TextView
+            android:id="@+id/step_description_tv"
+            android:layout_marginTop="4dp"
+            android:textStyle="italic"
+
+            style="@style/TextViewGeneral"
+            android:text="@{viewmodel.currentStep.description.substring(3)}"
+            tools:text="@string/example_instruction" />
+    </LinearLayout>
+
+</layout>

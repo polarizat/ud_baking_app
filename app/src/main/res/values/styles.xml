@@ -1,0 +1,82 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="RecipeDetailActivityTheme" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@transition/window_fade</item>
+    </style>
+
+    <style name="TextViewGeneral" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorTextPrimaryDark</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="LabelDark" parent="TextViewGeneral">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="LabelRecipeCardView" parent="LabelDark">
+        <item name="android:textColor">@color/colorTextPrimaryDark</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+    </style>
+
+    <style name="RecyclerView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorTextPrimaryDark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:isScrollContainer">false</item>
+    </style>
+
+    <style name="Player">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="layout_constraintDimensionRatio">16:9</item>
+        <item name="controller_layout_id">@xml/custom_playback_control</item>
+        <item name="resize_mode">fill</item>
+        <item name="show_timeout">2000</item>
+        <item name="fastforward_increment">15000</item>
+        <item name="rewind_increment">15000</item>
+        <item name="show_buffering">always</item>
+        <item name="shutter_background_color">@color/colorTextSecondaryLight</item>
+        <item name="scrubber_color">@color/colorPrimary</item>
+        <item name="played_color">@color/colorPrimary</item>
+        <item name="ad_marker_color">@color/colorPrimary</item>
+        <item name="played_ad_marker_color">@color/colorPrimary</item>
+        <item name="unplayed_color">@color/colorSecondary</item>
+        <item name="buffered_color">@color/white</item>
+    </style>
+
+    <style name="bottomNavButtons">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/colorTextPrimaryLight</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ingredientInfo">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+</resources>

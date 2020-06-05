@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ingredient"
+            type="com.example.bakingapp.data.models.Ingredient" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ingredient_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/ingredient_name_tv"
+            style="@style/ingredientInfo"
+            android:text="@{ingredient.name}"
+            android:layout_weight="3"
+            tools:text="@string/example_ingredient" />
+
+        <TextView
+            android:id="@+id/ingredient_quantity_tv"
+            style="@style/ingredientInfo"
+            android:text="@{String.valueOf(ingredient.quantity)}"
+            android:gravity="center"
+            tools:text="@string/example_quantity" />
+
+        <TextView
+            android:id="@+id/ingredient_measure_tv"
+            style="@style/ingredientInfo"
+            android:text="@{ingredient.measure}"
+            tools:text="@string/example_measure" />
+    </LinearLayout>
+
+</layout>
